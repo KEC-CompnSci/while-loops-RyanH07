@@ -7,10 +7,12 @@ public class Assignment {
     public static final Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
-      String repeated = repeatWord("", 0);
+      String repeated = repeatWord("hola", 3);
       System.out.println(repeated);
-      String pyramid = createPyramid(0);
-      String FizzBuzz = countTo(3);
+      String pyramid = createPyramid(5);
+      System.out.println(pyramid);
+      String FizzBuzz = countTo(10);
+      System.out.println(FizzBuzz);
       
     }
     
@@ -20,12 +22,24 @@ public class Assignment {
      * Example: word="hello" times=3 → "hello hello hello"
      */
     public static String repeatWord(String word, int times) {
-       
+       StringBuilder words = new StringBuilder("");
         // TODO: Implement this method
         // Use a while loop to build a string that repeats the word
         // Words should be separated by single spaces
         // No trailing space at the end
-        return "test";
+        int i = 1;
+        
+        
+        while (i <= times) {
+            words.append(word + " ");
+            i += 1;
+           
+        }
+
+        word = words.toString().trim();
+
+        
+        return word;
 
     
     }
@@ -39,13 +53,31 @@ public class Assignment {
      * 333
      */
     public static String createPyramid(int maxNumber) {
-        // TODO: Implement this method
-        // Use nested while loops:
-        // - Outer loop for each row
-        // - Inner loop to repeat the number
-        // Use \n for newlines
-        return "";
-    }
+       
+            StringBuilder pyramid = new StringBuilder();  // StringBuilder to store the pyramid pattern
+        
+            int outer = 1;  
+            while (outer <= maxNumber) {
+                int inner = 0;
+                
+               
+                while (inner < outer) {
+                    pyramid.append(outer);  
+                    inner += 1;
+                }
+                
+                pyramid.append("\n");  
+                outer += 1;  
+            }
+            
+            return pyramid.toString(); 
+        }
+        
+       
+  
+
+        
+           
     
  
     
@@ -59,13 +91,36 @@ public class Assignment {
      * Example: countTo(6) → "1 2 Fizz 4 Buzz Fizz"
      */
     public static String countTo(int maxNumber) {
-        // TODO: Implement this method
-        // Use a while loop
-        // Use string concatenation
-        // Numbers/words should be separated by spaces
-        // No trailing space at the end
-        return "";
+        StringBuilder result = new StringBuilder();  
+
+        
+        for (int i = 1; i <= maxNumber; i++) {
+           
+            if (i % 3 == 0 && i % 5 == 0) {
+                result.append("FizzBuzz");
+            }
+            
+            else if (i % 3 == 0) {
+                result.append("Fizz");
+            }
+          
+            else if (i % 5 == 0) {
+                result.append("Buzz");
+            }
+        
+            else {
+                result.append(i);
+            }
+
+            if (i != maxNumber) {
+                result.append(" ");
+            }
+        }
+
+        return result.toString();  // Return the final result as a string
     }
-    
-  
 }
+
+
+
+    

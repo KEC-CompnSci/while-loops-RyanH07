@@ -15,6 +15,7 @@ public class AssignmentTest {
     void testRepeatWord() {
         assertEquals("hello hello hello", Assignment.repeatWord("hello", 3).trim(),
             "Word should be repeated correct number of times");
+            
         
         assertEquals("test test", Assignment.repeatWord("test", 2).trim(),
             "Word should be repeated correct number of times");
